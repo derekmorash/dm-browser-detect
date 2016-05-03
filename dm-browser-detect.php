@@ -3,7 +3,7 @@
 Plugin Name: DM Browser Detect
 Plugin URI:  https://github.com/derekmorash/dm-browser-detect
 Description: Display or hide content depending on selected browsers, using shortcodes
-Version:     0.0.1
+Version:     1.0
 Author:      Derek Morash
 Author URI:  https://github.com/derekmorash
 License:     GPL3
@@ -21,7 +21,7 @@ function dm_browser_detect_hide( $atts, $content = null ) {
 
     // take the shortcode browsers attribute
     // and add it to a data attribute on the div wrapper
-    return '<div class="dm-detect-hide" style="color:#ff69b4;"
+    return '<div class="dm-browser-detect-hide"
       data-dm-detect-browsers="' . esc_attr($a['browsers']) . '">' .
       $content . '</div>';
 }
@@ -36,8 +36,18 @@ function dm_browser_detect_show( $atts, $content = null ) {
 
     // take the shortcode browsers attribute
     // and add it to a data attribute on the div wrapper
-    return '<div class="dm-detect-show" style="color:#ff69b4;"
+    return '<div class="dm-browser-detect-show"
       data-dm-detect-browsers="' . esc_attr($a['browsers']) . '">' .
       $content . '</div>';
 }
 add_shortcode( 'dmbrowserdetectshow', 'dm_browser_detect_show' );
+
+//add css and js
+function dm_browser_detect_assets() {
+    wp_register_script('dm-browser-detect-script', plugins_url( 'dm-browser-detect.js', __FILE__ ), array(), null, true);
+    wp_enqueue_script('dm-browser-detect-script');
+
+    wp_register_style( 'dm-browser-detect-style', plugins_url( 'dm-browser-detect.css', __FILE__) );
+    wp_enqueue_style( 'dm-browser-detect-style' );
+}
+add_action('wp_enqueue_scripts', 'dm_browser_detect_assets');
