@@ -29,7 +29,6 @@ var dmDetectBrowser = (function() {
 
       //loop through each slected browser
       selectedBrowsers.forEach(function(thisBrowser) {
-
         // if the browser is one of the selected browsers
         if(userBrowser.indexOf(thisBrowser) > -1) {
           el.className = el.className.replace('dm-detect-hidden', '');
@@ -40,10 +39,10 @@ var dmDetectBrowser = (function() {
 
   return {
     run: function() {
-      if(hideEl) {
+      if(hideEl.length > 0) {
         hideAll();
       }
-      if(showEl) {
+      if(showEl.length > 0) {
         showAll();
       }
     }
