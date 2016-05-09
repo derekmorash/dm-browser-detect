@@ -24,8 +24,8 @@ var dmDetectBrowser = (function() {
           //if the slected browser is safari, but the current browser isnt a mobile ios device
           el.className += ' dm-detect-hidden';
         } else if(thisBrowser === 'ios' &&
-        userBrowser.indexOf('ipad') > -1 &&
-        userBrowser.indexOf('ipod') > -1 &&
+        userBrowser.indexOf('ipad') > -1 ||
+        userBrowser.indexOf('ipod') > -1 ||
         userBrowser.indexOf('iphone') > -1 &&
         userBrowser.indexOf(!window.MSStream) > -1) {
           //if the selected browser is ios
@@ -58,8 +58,8 @@ var dmDetectBrowser = (function() {
           //if the slected browser is safari, but the current browser isnt a mobile ios device
           el.className = el.className.replace('dm-detect-hidden', '');
         } else if(thisBrowser === 'ios' &&
-        userBrowser.indexOf('ipad') > -1 &&
-        userBrowser.indexOf('ipod') > -1 &&
+        userBrowser.indexOf('ipad') > -1 ||
+        userBrowser.indexOf('ipod') > -1 ||
         userBrowser.indexOf('iphone') > -1 &&
         userBrowser.indexOf(!window.MSStream) > -1) {
           //if the selected browser is ios
