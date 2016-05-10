@@ -3,7 +3,7 @@
 Plugin Name: DM Browser Detect
 Plugin URI:  https://github.com/derekmorash/dm-browser-detect
 Description: Display or hide content depending on selected browsers, using shortcodes
-Version:     0.1.3
+Version:     0.2
 Author:      Derek Morash
 Author URI:  https://github.com/derekmorash
 License:     GPL3
