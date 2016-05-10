@@ -23,15 +23,14 @@ var dmDetectBrowser = (function() {
         userBrowser.indexOf('iphone') < 0) {
           //if the slected browser is safari, but the current browser isnt a mobile ios device
           el.className += ' dm-detect-hidden';
-        } else if(thisBrowser === 'ios' &&
-        userBrowser.indexOf('ipad') > -1 ||
-        userBrowser.indexOf('ipod') > -1 ||
-        userBrowser.indexOf('iphone') > -1 &&
-        userBrowser.indexOf(!window.MSStream) > -1) {
-          //if the selected browser is ios
-          el.className += ' dm-detect-hidden';
-        }
-
+        } else if(thisBrowser === 'ios' && userBrowser.indexOf(window.MSStream) < 0) {
+          if(userBrowser.indexOf('iphone') > -1 ||
+            userBrowser.indexOf('ipod') > -1 ||
+            userBrowser.indexOf('ipad') > -1 ) {
+            //if the selected browser is ios
+            el.className += ' dm-detect-hidden';
+          } //if iphone/ipad/ipod
+        } //if ios is selected
       }); //foreach selected browser
     }); //foreach el
   }; //hideAll
@@ -54,17 +53,18 @@ var dmDetectBrowser = (function() {
         userBrowser.indexOf(thisBrowser) &&
         userBrowser.indexOf('ipad') < 0 &&
         userBrowser.indexOf('ipod') < 0 &&
-        userBrowser.indexOf('iphone')< 0 ) {
+        userBrowser.indexOf('iphone') < 0 ) {
           //if the slected browser is safari, but the current browser isnt a mobile ios device
           el.className = el.className.replace('dm-detect-hidden', '');
-        } else if(thisBrowser === 'ios' &&
-        userBrowser.indexOf('ipad') > -1 ||
-        userBrowser.indexOf('ipod') > -1 ||
-        userBrowser.indexOf('iphone') > -1 &&
-        userBrowser.indexOf(!window.MSStream) > -1) {
-          //if the selected browser is ios
-          el.className = el.className.replace('dm-detect-hidden', '');
-        }
+
+        } else if(thisBrowser === 'ios' && userBrowser.indexOf(window.MSStream) < 0) {
+          if(userBrowser.indexOf('ipad') > -1 ||
+            userBrowser.indexOf('ipod') > -1 ||
+            userBrowser.indexOf('iphone') > -1 ) {
+            //if the selected browser is ios
+            el.className = el.className.replace('dm-detect-hidden', '');
+          } //if iphone/ipad/ipod
+        } //if ios is selected
       }); //foreach selected browser
     }); //foreach el
   }; //hideAll
