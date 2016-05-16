@@ -1,13 +1,13 @@
 var dmDetectBrowser = (function() {
   var userBrowser = navigator.userAgent.toLowerCase();
-  var hideEl = document.querySelectorAll('.dm-browser-detect-hide');
-  var showEl = document.querySelectorAll('.dm-browser-detect-show');
+  var hideEl = document.getElementsByClassName('dm-browser-detect-hide');
+  var showEl = document.getElementsByClassName('dm-browser-detect-show');
 
   var hideAll = function() {
     //loop through each element
     [].forEach.call(hideEl, function(el) {
       // get the selected browsers in the data attribute
-      var selectedBrowsers = el.dataset.dmDetectBrowsers
+      var selectedBrowsers = el.getAttribute('data-dm-detect-browsers')
         .toLowerCase().split(" ");
 
       //loop through each slected browser
@@ -41,7 +41,7 @@ var dmDetectBrowser = (function() {
       //set the element to hidden by default
       el.className += ' dm-detect-hidden';
       // get the selected browsers in the data attribute
-      var selectedBrowsers = el.dataset.dmDetectBrowsers
+      var selectedBrowsers = el.getAttribute('data-dm-detect-browsers')
         .toLowerCase().split(" ");
 
       //loop through each slected browser
